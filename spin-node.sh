@@ -88,7 +88,7 @@ if [ ! -n "$node_present" ]; then
 fi;
 
 # 3. run clients
-mkdir -p $dataDir
+mkdir -p "$dataDir"
 popupTerminalCmd="gnome-terminal --disable-factory --"
 spinned_pids=()
 for item in "${spin_nodes[@]}"; do
@@ -98,10 +98,10 @@ for item in "${spin_nodes[@]}"; do
 
   # create and/or cleanup datadirs
   itemDataDir="$dataDir/$item"
-  mkdir -p $itemDataDir
-  cmd="sudo rm -rf $itemDataDir/*"
-  echo $cmd
-  eval $cmd
+  mkdir -p "$itemDataDir"
+  cmd="rm -rf \"$itemDataDir\"/*"
+  echo "$cmd"
+  eval "$cmd"
 
   # parse validator-config.yaml for $item to load args values
   source parse-vc.sh

@@ -15,14 +15,14 @@ if [ -n "$generateGenesis" ] || [ ! -f "$configDir/validators.yaml" ] || [ ! -f 
   
   # Find the genesis generator script
   genesis_generator="$scriptDir/generate-genesis.sh"
-  
+
   if [ ! -f "$genesis_generator" ]; then
     echo "❌ Error: Genesis generator not found at $genesis_generator"
     exit 1
   fi
-  
+
   # Run the generator
-  if ! $genesis_generator "$configDir"; then
+  if ! "$genesis_generator" "$configDir"; then
     echo "❌ Genesis generation failed!"
     exit 1
   fi

@@ -12,7 +12,7 @@ else
 fi;
 
 # TODO: check for presense of all required files by filenames on configDir
-if [ ! -n "$(ls -A $configDir)" ]
+if [ ! -n "$(ls -A "$configDir")" ]
 then
   echo "no genesis config at path=$configDir, exiting."
   exit
